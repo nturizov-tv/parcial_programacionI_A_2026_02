@@ -27,11 +27,37 @@ public class Parcial2A {
             System.out.println("Numero del espacio:");
             numeroEspacio[i] = scanner.nextInt();
 
-            System.out.println("Tipo permitido (carro/moto):");
-            tipoEspacio[i] = scanner.next();
+            while (true) {
 
-            System.out.println("Estado inicial (disponible/ocupado):");
-            estadoEspacio[i] = scanner.next();
+                System.out.println("Tipo permitido (carro/moto):");
+                tipoEspacio[i] = scanner.next();
+
+                if (tipoEspacio[i].equals("carro") ||
+                        tipoEspacio[i].equals("moto")) {
+
+                    break;
+
+                } else {
+
+                    System.out.println("Error: solo puede escribir 'carro' o 'moto'");
+                }
+            }
+
+            while (true) {
+
+                System.out.println("Estado inicial (disponible/ocupado):");
+                estadoEspacio[i] = scanner.next();
+
+                if (estadoEspacio[i].equals("disponible") ||
+                        estadoEspacio[i].equals("ocupado")) {
+
+                    break;
+
+                } else {
+
+                    System.out.println("Error: solo puede escribir 'disponible' u 'ocupado'");
+                }
+            }
         }
 
         System.out.println("\nCantidad de vehiculos que desean ingresar:");
@@ -52,8 +78,21 @@ public class Parcial2A {
             System.out.println("Ingrese placa:");
             placaVehiculo = scanner.nextLine();
 
-            System.out.println("Ingrese tipo de vehiculo (carro/moto):");
-            tipoVehiculo = scanner.nextLine();
+            while (true) {
+
+                System.out.println("Ingrese tipo de vehiculo (carro/moto):");
+                tipoVehiculo = scanner.nextLine();
+
+                if (tipoVehiculo.equals("carro") ||
+                        tipoVehiculo.equals("moto")) {
+
+                    break;
+
+                } else {
+
+                    System.out.println("Error: solo puede escribir 'carro' o 'moto'");
+                }
+            }
 
             System.out.println("Ingrese nombre del propietario:");
             propietarioVehiculo = scanner.nextLine();
@@ -74,8 +113,11 @@ public class Parcial2A {
                     espacioEncontrado = true;
 
                     if (tipoVehiculo.equals("carro")) {
+
                         carrosAsignados++;
+
                     } else {
+
                         motosAsignadas++;
                     }
 
@@ -84,7 +126,9 @@ public class Parcial2A {
             }
 
             if (!espacioEncontrado) {
+
                 System.out.println("No existe espacio disponible para este vehiculo");
+
                 vehiculosSinEspacio++;
             }
         }
@@ -93,10 +137,11 @@ public class Parcial2A {
 
         for (int i = 0; i < cantEspacios; i++) {
 
-            System.out.println("Espacio: " + numeroEspacio[i] + " | Tipo: " + tipoEspacio[i]
-                    + " | Estado: " + estadoEspacio[i]);
+            System.out.println("Espacio: " + numeroEspacio[i] + " | Tipo: " + tipoEspacio[i] +
+             " | Estado: " + estadoEspacio[i]);
 
             if (estadoEspacio[i].equals("disponible")) {
+
                 espaciosDisponibles++;
             }
         }
